@@ -1,0 +1,287 @@
+<!-- 对柱状图的升级，增加了x轴字体颜色，换行；柱体配置不同颜色；-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ECharts</title>
+  <!-- 引入 echarts.js -->
+  <script src="/js/echarts.min.js"></script>
+</head>
+
+<body>
+  <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+  <div id="main" style="width: 100%;height:400px;"></div>
+  <script type="text/javascript">
+    // 基于准备好的dom，初始化echarts实例
+    var corlor = ['#ff6a62', '#c23531', '#5e8aa8', '#2f4554', '#009933 ', '#006633'];
+    //194 53 49       47 69 84   
+    //255 106 98       94 138 168
+    //9b2a27 ff6a62  5e3743  5e8aa8
+    //var corlor=['#CC0099','#CC0066','#000099','#000066','#009933 ','#006633','#009999'];
+    var myChart = echarts.init(document.getElementById('main'));
+    myChart.title = '折柱混合';
+    var option = {
+      color: ['#ff6a62', '#c23531', '#999966', '#61a0a8']
+      , tooltip: {
+        trigger: 'axis'
+      }
+      , legend: {
+        x: 'right'
+        , data: ['实际总费用', '按指数理论值', '占比']
+      }
+      , xAxis: [
+        {
+          type: 'category'
+          , axisLabel: {
+            interval: 0
+          }
+          , data: ['区属二甲\n专科医院', '区属二甲\n综合医院', '区属二乙\n专科医院', '区属二乙\n综合医院', '区属三甲\n专科医院', '区属三甲\n综合医院', '区属三乙\n综合医院'
+                        
+            , {
+              value: '市属三甲\n专科医院'
+              , textStyle: {
+                color: 'red'
+              }
+                        }, {
+              value: '市属三甲\n综合医院'
+              , textStyle: {
+                color: 'red'
+              }
+                        }, {
+              value: '市属三乙\n专科医院'
+              , textStyle: {
+                color: 'red'
+              }
+                        }, {
+              value: '市属三乙\n综合医院'
+              , textStyle: {
+                color: 'red'
+              }
+                        }, {
+              value: '社区卫生\n服务中心'
+              , textStyle: {
+                color: 'blue'
+              }
+                        }]
+                }
+    ]
+      , yAxis: [
+        {
+          type: 'value'
+          , name: '万元'
+          , min: 0
+          , max: 250
+          , interval: 50
+          , axisLabel: {
+            formatter: '{value} 万元'
+          }
+        }
+                
+        , {
+          type: 'value'
+          , name: '百分比'
+          , min: 0
+          , max: 25
+          , interval: 5
+          , axisLabel: {
+            formatter: '{value} %'
+          }
+        }
+    ]
+      , series: [
+        {
+          name: '实际总费用'
+          , type: 'bar'
+          , data: [{
+            value: 2.0
+            , itemStyle: {
+              normal: {
+                color: corlor[0]
+              }
+            }
+              }, {
+            value: 4.9
+            , itemStyle: {
+              normal: {
+                color: corlor[2]
+              }
+            }
+              }, {
+            value: 7.0
+            , itemStyle: {
+              normal: {
+                color: corlor[0]
+              }
+            }
+              }, {
+            value: 23.2
+            , itemStyle: {
+              normal: {
+                color: corlor[2]
+              }
+            }
+              }, {
+            value: 25.6
+            , itemStyle: {
+              normal: {
+                color: corlor[0]
+              }
+            }
+              }, {
+            value: 76.7
+            , itemStyle: {
+              normal: {
+                color: corlor[2]
+              }
+            }
+              }, {
+            value: 135.6
+            , itemStyle: {
+              normal: {
+                color: corlor[2]
+              }
+            }
+              }, {
+            value: 162.2
+            , itemStyle: {
+              normal: {
+                color: corlor[0]
+              }
+            }
+              }, {
+            value: 32.6
+            , itemStyle: {
+              normal: {
+                color: corlor[2]
+              }
+            }
+              }, {
+            value: 20.0
+            , itemStyle: {
+              normal: {
+                color: corlor[0]
+              }
+            }
+              }, {
+            value: 6.4
+            , itemStyle: {
+              normal: {
+                color: corlor[2]
+              }
+            }
+              }, {
+            value: 4.5
+            , itemStyle: {
+              normal: {
+                color: corlor[4]
+              }
+            }
+              }]
+        }
+                
+        , {
+          name: '按指数理论值'
+          , type: 'bar'
+          , data: [{
+            value: 2.6
+            , itemStyle: {
+              normal: {
+                color: corlor[1]
+              }
+            }
+              }, {
+            value: 5.9
+            , itemStyle: {
+              normal: {
+                color: corlor[3]
+              }
+            }
+              }, {
+            value: 9.0
+            , itemStyle: {
+              normal: {
+                color: corlor[1]
+              }
+            }
+              }, {
+            value: 26.4
+            , itemStyle: {
+              normal: {
+                color: corlor[3]
+              }
+            }
+              }, {
+            value: 28.7
+            , itemStyle: {
+              normal: {
+                color: corlor[1]
+              }
+            }
+              }, {
+            value: 70.7
+            , itemStyle: {
+              normal: {
+                color: corlor[3]
+              }
+            }
+              }, {
+            value: 175.6
+            , itemStyle: {
+              normal: {
+                color: corlor[3]
+              }
+            }
+              }, {
+            value: 182.2
+            , itemStyle: {
+              normal: {
+                color: corlor[1]
+              }
+            }
+              }, {
+            value: 48.7
+            , itemStyle: {
+              normal: {
+                color: corlor[3]
+              }
+            }
+              }, {
+            value: 18.8
+            , itemStyle: {
+              normal: {
+                color: corlor[1]
+              }
+            }
+              }, {
+            value: 6.0
+            , itemStyle: {
+              normal: {
+                color: corlor[3]
+              }
+            }
+              }, {
+            value: 4.0
+            , itemStyle: {
+              normal: {
+                color: corlor[5]
+              }
+            }
+              }]
+        }
+                
+        , {
+          name: '占比'
+          , type: 'line'
+          , yAxisIndex: 1
+          , data: [2.0, 2.2, 3.3, 4.5, 6.3, 10.2, 20.3, 23.4, 23.0, 16.5, 12.0, 4.0]
+        }
+    ]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+  </script>
+</body>
+
+</html>
